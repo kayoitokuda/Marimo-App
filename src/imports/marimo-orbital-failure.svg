@@ -1,0 +1,87 @@
+<svg width="800" height="480" viewBox="0 0 800 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="spaceBg" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#0e1225"/>
+      <stop offset="100%" stop-color="#020308"/>
+    </radialGradient>
+    <radialGradient id="earthBase" cx="36%" cy="30%" r="62%">
+      <stop offset="0%"   stop-color="#5bbef8"/>
+      <stop offset="32%"  stop-color="#2873cc"/>
+      <stop offset="100%" stop-color="#05102a"/>
+    </radialGradient>
+    <radialGradient id="earthAtmo" cx="50%" cy="50%" r="50%">
+      <stop offset="68%" stop-color="transparent"/>
+      <stop offset="86%" stop-color="#6cb4f0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#9ed4ff"  stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="earthGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#3d8bd4" stop-opacity="0.14"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="45%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.65)"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" fill="url(#spaceBg)"/>
+
+  <!-- Static Star Field (Selection) -->
+  <circle cx="120" cy="80" r="1.2" fill="white" opacity="0.8" />
+  <circle cx="240" cy="150" r="0.8" fill="white" opacity="0.6" />
+  <circle cx="450" cy="40" r="1.5" fill="white" opacity="0.9" />
+  <circle cx="680" cy="220" r="1" fill="white" opacity="0.7" />
+  <circle cx="50" cy="380" r="1.1" fill="white" opacity="0.5" />
+  <circle cx="750" cy="410" r="0.9" fill="white" opacity="0.8" />
+  <circle cx="390" cy="50" r="1.3" fill="white" opacity="0.95" />
+  <circle cx="180" cy="430" r="0.7" fill="white" opacity="0.4" />
+  <circle cx="520" cy="360" r="1.2" fill="white" opacity="0.85" />
+
+  <!-- Nebula Washes -->
+  <ellipse cx="660" cy="110" rx="160" ry="90" fill="#5A32AA" fill-opacity="0.04" />
+  <ellipse cx="130" cy="390" rx="130" ry="80" fill="#1E5AC8" fill-opacity="0.04" />
+
+  <!-- Earth System -->
+  <g transform="translate(390, 268)">
+    <circle r="112" fill="url(#earthGlow)"/>
+    <circle r="84"  fill="#040e1e"/>
+    <circle r="82"  fill="url(#earthBase)"/>
+    
+    <!-- Continents -->
+    <path d="M-16,-28 C-7,-37 7,-39 17,-32 C27,-25 29,-15 23,-6 C18,2 6,4 -3,-2 C-12,-8 -22,-18 -16,-28Z" fill="#2d6a4f" fill-opacity="0.88"/>
+    <path d="M-41,-13 C-34,-21 -21,-23 -12,-17 C-3,-11 -2,0 -7,8 C-12,15 -24,16 -32,11 C-40,6 -44,-5 -41,-13Z" fill="#40916c" fill-opacity="0.78"/>
+    <path d="M20,-8 C28,-16 40,-18 49,-11 C57,-4 57,7 51,14 C46,21 34,21 27,15 C20,10 13,0 20,-8Z" fill="#2d6a4f" fill-opacity="0.72"/>
+    <path d="M-20,12 C-15,4 -5,3 2,8 C9,14 9,23 3,28 C-2,33 -12,31 -17,25 C-22,20 -24,19 -20,12Z" fill="#52b788" fill-opacity="0.66"/>
+    
+    <!-- Ice Caps -->
+    <ellipse cy="-80" rx="17" ry="7.5" fill="white" fill-opacity="0.74"/>
+    <ellipse cy="81" rx="11" ry="5"   fill="white" fill-opacity="0.54"/>
+    
+    <!-- Atmosphere -->
+    <circle r="82"  fill="url(#earthAtmo)"/>
+    <circle r="84"  fill="none" stroke="#7ec8f5" stroke-width="2.5" stroke-opacity="0.17"/>
+    <circle r="89"  fill="none" stroke="#a8d8f0" stroke-width="1.5" stroke-opacity="0.08"/>
+  </g>
+
+  <!-- Orbit Ring -->
+  <ellipse cx="390" cy="248" rx="148" ry="50" fill="none" stroke="white" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="3 7" />
+
+  <!-- The Bounty (💰 Replacement) -->
+  <g transform="translate(530, 240)">
+    <circle r="12" fill="#E5A93D" stroke="#B8860B" stroke-width="1.5" />
+    <text x="0" y="4" font-family="Arial" font-size="14" font-weight="bold" fill="#F7F0E4" text-anchor="middle">$</text>
+    <circle r="15" fill="#E5A93D" fill-opacity="0.2" filter="url(#glow)" />
+  </g>
+
+  <!-- Marimo Corp Mission Label -->
+  <text x="390" y="406" text-anchor="middle" font-size="9" fill="white" fill-opacity="0.3" font-family="monospace" letter-spacing="2">MISSION REPORT — MARIMO CORP.</text>
+  <text x="390" y="430" text-anchor="middle" font-size="16" fill="#FCF5E6" font-family="sans-serif" font-weight="bold">Bounty entered low Earth orbit.</text>
+
+  <!-- Vignette -->
+  <rect width="800" height="480" fill="url(#vignette)"/>
+</svg>
