@@ -367,7 +367,7 @@ export default function Home() {
 
       {/* header */}
       <header className="sticky top-0 z-20 bg-card border-b border-border px-4 py-3">
-        <div className="max-w-2xl mx-auto flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <img src={marimoAvatar} alt="Marimo" className="w-9 h-9 rounded-full object-cover ring-2 ring-secondary" />
             <div className="leading-none">
@@ -407,7 +407,7 @@ export default function Home() {
         </div>
       )}
 
-      <main className="max-w-2xl mx-auto px-4 sm:px-5 py-6 sm:py-8 space-y-4 sm:space-y-5">
+      <main className="max-w-[800px] mx-auto px-4 sm:px-5 py-6 sm:py-8 space-y-4 sm:space-y-5">
 
         {/* ══ NEW ══════════════════════════════════════════════════════════ */}
         {appState === "new" && (
@@ -478,22 +478,31 @@ export default function Home() {
                     <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider">Commitment</p>
                     <p className="text-sm font-bold text-primary mt-0.5">{fTask}</p>
                   </div>
-                  <div className="space-y-2">
+                  <div className="grid grid-cols-3 gap-2">
                     {([
-                      { v: "honor",      label: "I'll confirm it myself",  sub: "Self-attestation. Marimo is choosing to trust you.", icon: "🤞" },
-                      { v: "screenshot", label: "Upload a screenshot",     sub: "Upload visual evidence of completion.",              icon: "📸" },
-                      { v: "link",       label: "Submit a link",           sub: "Provide a URL as proof of completion.",              icon: "🔗" },
-                    ] as { v: ProofType; label: string; sub: string; icon: string }[]).map(opt => (
-                      <button key={opt.v} onClick={() => setFProof(opt.v)} className="w-full text-left flex items-start gap-3.5 p-4 rounded-2xl border-2 transition-all" style={{ background: fProof === opt.v ? "rgba(41,72,61,0.06)" : "transparent", borderColor: fProof === opt.v ? "rgba(41,72,61,0.28)" : "rgba(41,72,61,0.12)" }}>
-                        <span className="text-xl mt-0.5 flex-shrink-0">{opt.icon}</span>
-                        <div>
-                          <p className="text-sm font-bold text-foreground">{opt.label}</p>
-                          <p className="text-xs text-muted-foreground mt-0.5 leading-snug">{opt.sub}</p>
-                        </div>
-                        {fProof === opt.v && <span className="ml-auto text-primary font-bold text-sm flex-shrink-0">✓</span>}
+                      { v: "honor",      label: "Honor",      icon: "🤞" },
+                      { v: "screenshot", label: "Screenshot", icon: "📸" },
+                      { v: "link",       label: "Link",       icon: "🔗" },
+                    ] as { v: ProofType; label: string; icon: string }[]).map(opt => (
+                      <button
+                        key={opt.v}
+                        onClick={() => setFProof(opt.v)}
+                        className={`text-center py-2.5 px-1.5 rounded-xl border-2 transition-all ${
+                          fProof === opt.v
+                            ? "bg-primary text-primary-foreground border-primary"
+                            : "bg-secondary text-foreground border-transparent"
+                        }`}
+                      >
+                        <div className="text-lg leading-none">{opt.icon}</div>
+                        <div className="text-[10px] font-bold mt-1">{opt.label}</div>
                       </button>
                     ))}
                   </div>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-snug">
+                    {fProof === "honor" && "Self-attestation. Marimo is choosing to trust you."}
+                    {fProof === "screenshot" && "Upload visual evidence of completion."}
+                    {fProof === "link" && "Provide a URL as proof of completion."}
+                  </p>
                 </div>
               )}
 
