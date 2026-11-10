@@ -58,8 +58,7 @@ npm run build
 
 ## Project links
 
-- [Figma Make prototype](https://www.figma.com/design/8NfxezR3NTuKjkIZ7DaY7X/Marimo-s-Bounty-Prototype)
-- [Kayoi Tokuda — portfolio](https://www.kayoitokuda.com)
+- [Figma Make prototype](https://www.figma.com/make/8NfxezR3NTuKjkIZ7DaY7X/Marimo-s-Bounty-Prototype?t=sAAga4pDQJvpgtRI-20&fullscreen=1&preview-route=%2Fonboarding)
 
 ## Notes and limitations
 
